@@ -1,2 +1,2 @@
-const GRID_UNIT = 50;
+const GRID_UNIT = 80;
 export { GRID_UNIT };
