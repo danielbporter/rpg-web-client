@@ -1,4 +1,4 @@
-import { DASHBOARD_LAYOUT_CHANGE, DASHBOARD_CHANGE_WIDTH, CHANGE_WIDGET_SIZE } from './ActionTypes';
+import { DASHBOARD_LAYOUT_CHANGE, DASHBOARD_CHANGE_WIDTH, CHANGE_WIDGET_SIZE, UI_WINDOW_RESIZE } from './ActionTypes';
 
 export function updateLayout(layout) {
   return {
@@ -31,5 +31,13 @@ export function changeWidgetSize(id, width, height) {
     width,
     height,
     type: CHANGE_WIDGET_SIZE,
+  };
+}
+
+export function windowResize(width, height) {
+  return {
+    width,
+    height,
+    type: UI_WINDOW_RESIZE,
   };
 }

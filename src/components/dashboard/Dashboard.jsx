@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-// import { Responsive, WidthProvider } from 'react-grid-layout';
-// import ReactGridLayout, { WidthProvider } from 'react-grid-layout';
 import ReactGridLayout from 'react-grid-layout';
 import { updateLayout, changeWidth } from '../../actions/ActionCreators';
 
@@ -12,7 +10,6 @@ import AssetWidget from '../widgets/AssetWidget';
 
 function mapStateToProps(state) {
   return {
-    // layout: state.dashboard.layout,
     dashboard: state.dashboard.toJS(),
   };
 }
@@ -24,23 +21,10 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function makeWidget(key, type, text) {
-  const classes = 'widget ' + type;
-  return (
-    <article key={key} className={classes}>
-      <header>
-        <h3 style={{ textAlign: 'center' }}>{text}</h3>
-      </header>
-    </article>
-  );
-}
-
-
 class Dashboard extends Component {
 
   // constructor() {
   //   super();
-
   //   this.props.changeWidth(this.calculateWidthAndCols(800, 50));
   // }
 
@@ -80,12 +64,6 @@ class Dashboard extends Component {
     // console.log(args);
   }
 
-  getWidgetLayout() {
-    return {
-      border: '1px solid black',
-    };
-  }
-
   calculateWidthAndCols(oldWidth, rowHeight) {
     const cols = Math.floor(oldWidth / rowHeight);
     const width = cols * rowHeight;
@@ -97,22 +75,6 @@ class Dashboard extends Component {
   }
 
   render() {
-    // RGL required
-    // width
-    // layout (or _grid prop of children)
-    // onLayoutChange
-
-    // callbacks
-    // (layout: Layout, oldItem: LayoutItem, newItem: LayoutItem,
-    //     placeholder: LayoutItem, e: MouseEvent, element: HTMLElement) => void
-    // * start and stop use undefined for placeholder
-    // onDragStart
-    // onDrag
-    // onDragStop
-    // onResizeStart
-    // onResize
-    // onResizeStart
-
     const rglProps = {
       onDrag: this.onDrag,
       onDragStart: this.onDragStart,
@@ -123,19 +85,15 @@ class Dashboard extends Component {
       onResizeStop: this.onResizeStop,
     };
 
-    // const widgetLayout = this.getWidgetLayout();
-
-    // console.log(this.props.dashboard);
-
     return (
       <div className="dashboard">
         <h1>Hello, World!</h1>
         <ReactGridLayout {...rglProps} {...this.props.dashboard}>
           {/* this.props.children */}
-          <AssetWidget key={'a'} id={'a'} name="A" assetType="item" />
-          <AssetWidget key={'b'} id={'b'} name="N" assetType="npc" />
-          <AssetWidget key={'c'} id={'c'} name="E" assetType="encounter" />
-          <AssetWidget key={'d'} id={'d'} name="L" assetType="locale" />
+          <AssetWidget key={'a'} name="A" assetType="item" />
+          <AssetWidget key={'b'} name="N" assetType="npc" />
+          <AssetWidget key={'c'} name="E" assetType="encounter" />
+          <AssetWidget key={'d'} name="L" assetType="locale" />
         </ReactGridLayout>
       </div>
     );
