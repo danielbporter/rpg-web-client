@@ -1,0 +1,23 @@
+.widget {
+    border: 1px solid black;
+}
+
+.item {
+    background-color: #c0392b;
+}
+
+.npc {
+    background-color: #2980b9;
+}
+
+.encounter {
+    background-color: #27ae60;
+}
+
+.locale {
+    background-color: #f1c40f;
+}
+
+.react-grid-item.react-grid-placeholder {
+    background: #222222;
+}
