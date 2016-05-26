@@ -6,6 +6,10 @@ const initialState = Immutable.fromJS({
   height: typeof window === 'object' ? window.innerHeight : null,
 });
 
+function uiWindowResize(state, action) {
+  return state.set('width', action.width).set('height', action.height);
+}
+
 export default function (state = initialState, action) {
   if (action === undefined) {
     return state;
@@ -13,7 +17,7 @@ export default function (state = initialState, action) {
 
   switch (action.type) {
     case UI_WINDOW_RESIZE:
-      return state.set('width', action.width).set('height', action.height);
+      return uiWindowResize(state, action);
     default:
       return state;
   }

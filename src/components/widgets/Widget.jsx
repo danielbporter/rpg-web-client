@@ -9,7 +9,17 @@ class Widget extends Component {
 }
 
 Widget.propTypes = {
-  children: PropTypes.node,
+  // ReactProps
+  children: PropTypes.any,
+  className: PropTypes.string,
+
+  // widgetProps
+  id: PropTypes.string,
+  sizeClass: PropTypes.string,
+  changeSize: PropTypes.func,
+
+  // contentProps
+  content: PropTypes.object,
 };
 
 Widget.defaultProps = {

@@ -4,7 +4,7 @@ import { GRID_UNIT } from '../../constants';
 const SIZE_CLASSES = {
   thumbnail: [1, 1],
   normal: [3, 1],
-  full: [3, 3],
+  full: [3, 2],
 };
 
 class AssetWidget extends Component {
@@ -23,49 +23,80 @@ class AssetWidget extends Component {
   handleContextMenu(e) {
     switch (this.props.sizeClass) {
       case 'thumbnail':
-        this.props.changeSize(...SIZE_CLASSES.normal);
+        // change to normal
+        // console.log('In thumbnail case.');
+        this.props.changeSize(...SIZE_CLASSES.normal, 'normal');
+        e.preventDefault();
         break;
       case 'normal':
-        this.props.changeSize(...SIZE_CLASSES.full);
+        // console.log('In normal case.');
+        // change to full
+        this.props.changeSize(...SIZE_CLASSES.full, 'full');
+        e.preventDefault();
         break;
       case 'full':
-        this.props.changeSize(...SIZE_CLASSES.thumbnail);
+        // console.log('In full case.');
+        // change to thumbnail
+        this.props.changeSize(...SIZE_CLASSES.thumbnail, 'thumbnail');
+        e.preventDefault();
         break;
       default:
-        console.log('ERROR: Hit default case of handleContextMenu in AssetWidget.');
+        return;
     }
   }
 
   render() {
+    // const draggableChild = React.Children.only(this.props.children);
+    const children = React.Children.toArray(this.props.children)
+      .filter((c) => c !== undefined);
+
+    // console.log(this.props.children);
+
     const widgetProps = Object.assign({},
       this.props,
       {
         className: `${this.props.className} ${this.getClassName()}`,
-        handleContextMenu: this.handleContextMenu,
+        onContextMenu: this.handleContextMenu,
       });
 
-    // console.log(widgetProps);
+    if (widgetProps.name === 'A') {
+      // console.log(widgetProps);
+    }
 
     const iconSrc = `${this.props.assetType}_icon.png`;
 
     return (
       <div {...widgetProps}>
         {/* <h3 style={{ textAlign: 'center' }}>{this.props.name}</h3> */}
-        <img src={iconSrc} alt={'placeholder icon'} width={GRID_UNIT} height={GRID_UNIT} />
-        {this.props.children}
+        <img
+          key={widgetProps.id}
+          src={iconSrc}
+          draggable={false}
+          alt={'placeholder icon'}
+          width={'100%'}
+          height={'100%'}
+        />
+        {children}
+        {/* draggableChild */}
+        {/* this.props.children */}
       </div>
     );
   }
 }
 
 AssetWidget.propTypes = {
-  assetType: PropTypes.string.isRequired,
-  changeSize: PropTypes.func,
+  // ReactProps
   children: PropTypes.any,
   className: PropTypes.string,
+
+  // widgetProps
   id: PropTypes.string,
-  name: PropTypes.string.isRequired,
   sizeClass: PropTypes.string,
+  changeSize: PropTypes.func,
+
+  // contentProps
+  assetType: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default AssetWidget;

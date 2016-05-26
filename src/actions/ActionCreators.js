@@ -1,36 +1,29 @@
-import { DASHBOARD_LAYOUT_CHANGE, DASHBOARD_CHANGE_WIDTH, CHANGE_WIDGET_SIZE, UI_WINDOW_RESIZE } from './ActionTypes';
+import {
+  DASHBOARD_LAYOUT_CHANGE,
+  DASHBOARD_CHANGE_WIDTH,
 
-export function updateLayout(layout) {
+  UI_WINDOW_RESIZE,
+
+  WIDGET_ADD_WIDGET,
+  WIDGET_REMOVE_WIDGET,
+  WIDGET_CHANGE_CONTENT,
+  WIDGET_CHANGE_SIZE,
+} from './ActionTypes';
+
+import uuid from 'node-uuid';
+
+export function updateDashboardLayout(layout) {
   return {
     layout,
     type: DASHBOARD_LAYOUT_CHANGE,
   };
 }
 
-export function changeWidth(width, cols) {
-  // const margin = state.getIn(['dashboard', 'margin']).get(0);
-  // const oldWidth = state.getIn(['dashboard', 'width']);
-  // const rowHeight = state.getIn(['dashboard', 'rowHeight']);
-
-  // const cols = (oldWidth + margin) / (rowHeight + margin);
-  // const width = cols * rowHeight + (cols - 1) * margin;
-
-  // console.log('Cols: ' + cols);
-  // console.log('Width: ' + width);
-
+export function changeDashboardWidth(width, cols) {
   return {
     width,
     cols,
     type: DASHBOARD_CHANGE_WIDTH,
-  };
-}
-
-export function changeWidgetSize(id, width, height) {
-  return {
-    id,
-    width,
-    height,
-    type: CHANGE_WIDGET_SIZE,
   };
 }
 
@@ -39,5 +32,38 @@ export function windowResize(width, height) {
     width,
     height,
     type: UI_WINDOW_RESIZE,
+  };
+}
+
+export function addWidget(widget) {
+  // widget.id = uuid.v1();
+  return {
+    widget: Object.assign(widget, {
+      id: uuid.v1(),
+    }),
+    type: WIDGET_ADD_WIDGET,
+  };
+}
+
+export function removeWidget() {
+  return {
+    type: WIDGET_REMOVE_WIDGET,
+  };
+}
+
+export function changeWidgetContent(content) {
+  return {
+    content,
+    type: WIDGET_CHANGE_CONTENT,
+  };
+}
+
+export function changeWidgetSize(id, width, height, sizeClass) {
+  return {
+    id,
+    width,
+    height,
+    sizeClass,
+    type: WIDGET_CHANGE_SIZE,
   };
 }

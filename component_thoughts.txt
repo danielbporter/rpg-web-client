@@ -1,0 +1,23 @@
+All widgets exist in <Widget /> higher order component or something like that. Behavior common to all (or most) widgets belongs in <Widget />. 
+
+Common Behaviors:
+* Rendering at different size classes.
+
+
+Props:
+* className
+* children? (more below)
+
+* id
+* sizeClass
+* changeSize[Func]
+
+* content (different than children because it is unrendered)
+
+
+Widgets need to respond to changes in sizeClass
+
+
+Children?
+* Children is already used for resize handle, but this might be eliminated.
+* 

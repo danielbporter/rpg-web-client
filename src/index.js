@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import App from './components/App';
 import createStore from './store';
-import windowResize from './actions/ActionCreators';
+import { windowResize } from './actions/ActionCreators';
 
 const store = createStore();
 
