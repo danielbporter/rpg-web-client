@@ -2,9 +2,13 @@
 
 * Pull latest changes from Github.
 * In terminal, run:
-    npm install
+```
+npm install
+```
 * After waiting for any new dependencies to download, run:
-    npm run start
+```
+npm run start
+```
 * In your browser, navigate to http://localhost:8080
 
 
