@@ -1,5 +1,11 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .widget {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 .item {
@@ -20,4 +26,70 @@
 
 .react-grid-item.react-grid-placeholder {
     background: #222222;
+}
+
+.asset-widget-icon {
+    float: left;
+    margin: 0px;
+    position: relative;
+}
+
+.asset-widget-normal-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.asset-widget-full {
+    display: flex;
+    flex-direction: column;
+}
+
+.asset-widget-full-header {
+
+}
+
+.asset-widget-name {
+    margin: 0px;
+    position: relative;
+    margin: 5px;
+}
+
+.asset-widget-slug {
+    margin: 0px;
+    position: relative;
+    margin: 5px;
+}
+
+.asset-widget-description {
+    margin: 5px;
+    float: left;
+    position: relative;
+}
+
+.dice-widget {
+    background: #22FFFF;
+}
+
+.dice-widget-roll-button {
+    border: solid black 1px;
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin: 5px;
+    text-align: center;
+/*    vertical-align: middle;*/
+    border-radius: 50%;
+}
+
+.dice-widget-roll-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.dice-widget-reset-button {
+    float: left;
+}
+
+.dice-widget-sum-display {
+    clear: left;
 }

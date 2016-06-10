@@ -8,6 +8,9 @@ import {
   WIDGET_REMOVE_WIDGET,
   WIDGET_CHANGE_CONTENT,
   WIDGET_CHANGE_SIZE,
+
+  DICE_WIDGET_ROLL,
+  DICE_WIDGET_RESET,
 } from './ActionTypes';
 
 import uuid from 'node-uuid';
@@ -65,5 +68,22 @@ export function changeWidgetSize(id, width, height, sizeClass) {
     height,
     sizeClass,
     type: WIDGET_CHANGE_SIZE,
+  };
+}
+
+export function diceWidgetRoll(id, sides) {
+  const roll = Math.floor(Math.random() * sides) + 1;
+  console.log(`Roll: ${roll} on d${sides}.`);
+  return {
+    id,
+    sides,
+    roll,
+    type: DICE_WIDGET_ROLL,
+  };
+}
+
+export function diceWidgetReset(id) {
+  return {
+
   };
 }

@@ -4,42 +4,52 @@ import {
   WIDGET_REMOVE_WIDGET,
   WIDGET_CHANGE_CONTENT,
   WIDGET_CHANGE_SIZE,
+  DICE_WIDGET_ROLL,
+  DICE_WIDGET_RESET,
 } from '../actions/ActionTypes';
 
 const initialState = Immutable.fromJS({
   a: {
     id: 'a',
-    type: 'NewWidgetWidget',
+    type: 'AssetWidget',
     sizeClass: 'thumbnail',
-    content: {},
+    content: {
+      name: 'Explore the abandoned lighthouse',
+      slug: 'Abandoned light house might have treasure....',
+      description: '@#$%@#%',
+      assetType: 'encounter',
+    },
   },
   b: {
     id: 'b',
     type: 'AssetWidget',
-    sizeClass: 'thumbnail',
+    sizeClass: 'normal',
     content: {
-      name: 'N',
-      assetType: 'npc',
+      name: 'Barter for a pawned item',
+      slug: 'Susie pawned her father\'s sword, now she needs it back!',
+      description: '@#$%@#%',
+      assetType: 'encounter',
     },
   },
   c: {
     id: 'c',
-    type: 'AssetWidget',
-    sizeClass: 'thumbnail',
+    type: 'DiceWidget',
+    sizeClass: 'normal',
     content: {
-      name: 'E',
-      assetType: 'encounter',
+      dice: [20, 6],
+      sum: 8,
+      rolls: [[8, 20]],
     },
   },
-  d: {
-    id: 'd',
-    type: 'AssetWidget',
-    sizeClass: 'thumbnail',
-    content: {
-      name: 'D',
-      assetType: 'locale',
-    },
-  },
+  // d: {
+  //   id: 'd',
+  //   type: 'AssetWidget',
+  //   sizeClass: 'thumbnail',
+  //   content: {
+  //     name: 'D',
+  //     assetType: 'locale',
+  //   },
+  // },
 });
 
 function addWidget(state, action) {
@@ -67,6 +77,22 @@ function changeWidgetSizeClass(state, action) {
   return state.setIn([action.id, 'sizeClass'], action.sizeClass);
 }
 
+function diceWidgetRoll(state, action) {
+  return state.updateIn([action.id, 'content'], (content) =>
+    content
+      .update('rolls', (rolls) => rolls.push(Immutable.List([action.roll, action.sides])))
+      .update('sum', (sum) => sum + action.roll)
+  );
+}
+
+function diceWidgetReset(state, action) {
+  return state.updateIn([action.id, 'content'], (content) =>
+    content
+      .update('rolls', (rolls) => rolls.clear())
+      .update('sum', 0)
+  );
+}
+
 export default function (state = initialState, action) {
   if (action === undefined) {
     return state;
@@ -81,6 +107,10 @@ export default function (state = initialState, action) {
       return changeWidgetContent(state, action);
     case WIDGET_CHANGE_SIZE:
       return changeWidgetSizeClass(state, action);
+    case DICE_WIDGET_ROLL:
+      return diceWidgetRoll(state, action);
+    case DICE_WIDGET_RESET:
+      return diceWidgetReset(state, action);
     default:
       return state;
   }
