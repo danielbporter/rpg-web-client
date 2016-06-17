@@ -11,4 +11,5 @@ npm run start
 ```
 * In your browser, navigate to http://localhost:8080
 
-
+TODO:
+* Fix small 1px error in widths on grid.
