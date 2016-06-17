@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react';
 
-const DiceButton = (props) =>
-  <div className={'dice-widget-roll-button'} onClick={props.rollFunction}>
-    {props.sides}
+const ResetButton = (props) =>
+  <div className={'dice-widget-reset-button'} onClick={props.onClick}>
+    Reset
   </div>;
 
-DiceButton.propTypes = {
-  rollFunction: PropTypes.func,
-  sides: PropTypes.number.isRequired,
+ResetButton.propTypes = {
+  onClick: PropTypes.func,
 };
 
-export default DiceButton;
+export default ResetButton;

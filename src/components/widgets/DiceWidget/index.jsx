@@ -48,7 +48,7 @@ class DiceWidget extends Component {
   sumDisplay(sumValue) {
     // The dice widget will not show '0' if no dice have been rolled,
     // so ' ' is the default value (since it would display as whitespace)
-    let displayValue = ' ';
+    let displayValue = '\u00a0';
 
     // if the sum is greater than 0, dice have been rolled, and the sum should be displayed
     if (sumValue > 0) {
@@ -63,7 +63,7 @@ class DiceWidget extends Component {
   }
 
   render() {
-    console.log(this.props.rolls.toString());
+    // console.log(this.props.rolls.toString());
 
     // grab the id specifcally because it will get used a few times
     const id = this.props.id;
@@ -86,7 +86,7 @@ class DiceWidget extends Component {
     const rollButtons = this.props.dice.map(sides =>
       <DiceButton
         sides={sides}
-        rollFunction={(roll) => this.props.rollFunction(this.props.id, roll)}
+        onClick={() => this.props.rollFunction(this.props.id, sides)}
       />
     );
 

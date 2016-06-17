@@ -1,9 +1,17 @@
 import React, { Component, PropTypes } from 'react';
-import { GRID_UNIT } from '../../constants';
+import { GRID_UNIT } from '../../../constants';
+import Thumbnail from './Thumbnail';
+
+import Avatar from 'material-ui/Avatar';
+
+import {
+  Card,
+  CardHeader,
+} from 'material-ui/Card';
 
 const SIZE_CLASSES = {
   thumbnail: [1, 1],
-  normal: [4, 1],
+  normal: [5, 1],
   full: [4, 2],
 };
 
@@ -12,7 +20,7 @@ class AssetWidget extends Component {
   constructor() {
     super();
     this.getClassName = this.getClassName.bind(this);
-    this.getIconName = this.getIconName.bind(this);
+    // this.getIconName = this.getIconName.bind(this);
     this.handleContextMenu = this.handleContextMenu.bind(this);
     this.renderThumbnailContents = this.renderThumbnailContents.bind(this);
     this.renderContents = this.renderContents.bind(this);
@@ -23,9 +31,9 @@ class AssetWidget extends Component {
     return `widget ${this.props.assetType}`;
   }
 
-  getIconName() {
-    return `${this.props.assetType}_icon.png`;
-  }
+  // getIconName() {
+  //   return `${this.props.assetType}_icon.png`;
+  // }
 
   handleContextMenu(e) {
     switch (this.props.sizeClass) {
@@ -64,84 +72,112 @@ class AssetWidget extends Component {
     }
   }
 
-  renderPlaceholderIcon(id, iconSrc) {
+  renderThumbnail(id, assetType) {
     return (
-      <img
-        key={`${this.props.id} icon`}
-        src={iconSrc}
-        draggable={false}
-        alt={'placeholder icon'}
-        width={`${GRID_UNIT}px`}
-        height={`${GRID_UNIT}px`}
-        className={'asset-widget-icon'}
+      <Thumbnail
+        key={`${id}_thumb`}
+        id={id}
+        width={GRID_UNIT}
+        height={GRID_UNIT}
+        assetType={assetType}
       />
     );
   }
 
+  // render
+
   renderThumbnailContents() {
-    return this.renderPlaceholderIcon(this.props.id, this.getIconName());
+    // console.log(this);
+    return this.renderThumbnail(this.props.id, this.props.assetType);
   }
 
   renderNormalContents() {
-    const img = this.renderPlaceholderIcon(this.props.id, this.getIconName());
+    // const thumbnail = this.renderThumbnail(this.props.id, this.props.assetType);
 
-    const name = (
-      <h3 key={`${this.props.id} name`} className={'asset-widget-name'}>
-        {this.props.name}
-      </h3>
+    // const name = (
+    //   <span key={`${this.props.id}_normal_name`} className={'asset-widget-name'}>
+    //     {this.props.name}
+    //   </span>
+    // );
+
+    // const slug = (
+    //   <span key={`${this.props.id}_normal_slug`} className={'asset-widget-description'}>
+    //     {this.props.slug}
+    //   </span>
+    // );
+
+    // const header = (
+    //   <div key={`${this.props.id}_normal_header`} className={'asset-widget-normal-header'}>
+    //     {name}
+    //     {slug}
+    //   </div>
+    // );
+
+    // return [
+    //   thumbnail,
+    //   header,
+    // ];
+
+
+    return (
+      <Card style={{ /* padding: '0px' */ }}>
+        <CardHeader
+          title={this.props.name}
+          subtitle={this.props.description}
+          avatar={
+            <Avatar
+              src={'/media/encounter_icon.png'}
+              // style={{ borderRadius: '0%', margin: '5px', border: '0px' }}
+              // size={GRID_UNIT-10}
+            />
+          }
+          style={
+            {
+              padding: '10px',
+            }}
+          textStyle={
+            { 
+              // paddingLeft: '5px',
+              paddingRight: '0px',
+              overflow: 'hidden',
+              // textOverflow: 'ellipsis',
+            }}
+        />
+      </Card>
     );
-
-    const slug = (
-      <p key={`${this.props.id} slug`} className={'asset-widget-slug'}>
-        {this.props.slug}
-      </p>
-    );
-
-    const header = (
-      <div key={this.props.id} className={'asset-widget-normal-header'}>
-        {name}
-        {slug}
-      </div>
-    );
-
-    return [
-      img,
-      header,
-    ];
   }
 
   renderFullContents() {
-    const img = this.renderPlaceholderIcon(this.props.id, this.getIconName());
+    const thumbnail = this.renderThumbnail(this.props.id, this.props.assetType);
 
     const name = (
-      <h3 key={`${this.props.id} name`} className={'asset-widget-name'}>
+      <span key={`${this.props.id}_full_name`} className={'asset-widget-name'}>
         {this.props.name}
-      </h3>
+      </span>
     );
 
-    const slug = (
-      <p key={`${this.props.id} slug`} className={'asset-widget-slug'}>
-        {this.props.slug}
-      </p>
-    );
+    // const slug = (
+    //   <span key={`${this.props.id}_full_slug`} className={'asset-widget-description'}>
+    //     {this.props.slug}
+    //   </span>
+    // );
 
     const description = (
-      <p key={`${this.props.id} description`} className={'asset-widget-description'}>
+      <span key={`${this.props.id}_full_description`} className={'asset-widget-description'}>
         {this.props.description}
-      </p>
+      </span>
     );
 
     const miniHeader = (
-      <div key={this.props.id} className={'asset-widget-normal-header'}>
+      <div key={`${this.props.id}_full_miniheader`} className={'asset-widget-normal-header'}>
         {name}
-        {slug}
       </div>
     );
 
     return (
-      <div className={'asset-widget-full'}>
-        <div className={'asset-widget-full-header'}>
-          {img}
+      <div key={`${this.props.id}_full`} className={'asset-widget-full'}>
+        <div key={`${this.props.id}_full_header`} className={'asset-widget-full-header'}>
+          {thumbnail}
           {miniHeader}
         </div>
         {description}
@@ -164,7 +200,7 @@ class AssetWidget extends Component {
     const contents = this.renderContents();
 
     return (
-      <div {...widgetProps}>
+      <div key={this.props.id} {...widgetProps}>
         {contents}
         {children}
       </div>
@@ -185,7 +221,7 @@ AssetWidget.propTypes = {
   // contentProps
   assetType: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
+  // slug: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
 

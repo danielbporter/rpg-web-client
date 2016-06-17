@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "lint": "eslint src",
-    "start": "webpack-dev-server --inline --content-base build/"
+    "start": "webpack-dev-server --inline --content-base dist/"
   },
   "eslintConfig": {
     "extends": "airbnb"
@@ -27,6 +27,7 @@
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.1.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.21.0",
     "node-sass": "^3.7.0",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
@@ -36,11 +37,13 @@
   "dependencies": {
     "immutable": "^3.8.1",
     "json-loader": "^0.5.4",
+    "material-ui": "^0.15.0",
     "node-uuid": "^1.4.7",
     "react": "^15.0.2",
     "react-dom": "^15.1.0",
     "react-grid-layout": "^0.12.4",
     "react-redux": "^4.4.5",
+    "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.5.2",
     "underscore": "^1.8.3"
   }

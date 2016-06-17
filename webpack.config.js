@@ -1,11 +1,15 @@
+// import ExtractTextPlugin from 'extract-text-webpack-plugin';
+// import HtmlWebpackPlugin from 'html-webpack-plugin';
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
 
   output: {
-    path: './build',
+    path: './dist',
     filename: 'bundle.js',
+    // publicPath: './dist',
   },
 
   module: {
@@ -26,14 +30,16 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
-          'style',
+          'style-loader',
           'css-loader?sourceMap',
           'sass-loader?sourceMap=true&sourceMapContents=true'
         ),
+        // loaders: ['style', 'css?sourceMap', 'sass?sourceMap=true&sourceMapContents=true'],
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap'),
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap'),
+        // loaders: ['style', 'css?sourceMap'],
       },
     ],
   },
@@ -42,11 +48,16 @@ module.exports = {
 
   resolve: {
     extensions: ['', '.js', '.jsx'],
-    modulesDirectories: ['node_modules'],
+    modulesDirectories: ['node_modules', 'media'],
   },
+
+  displayModules: true,
 
   plugins: [
     new ExtractTextPlugin('styles.css'),
+    new HtmlWebpackPlugin({
+      title: 'RPG-ARC',
+    }),
   ],
 
 };

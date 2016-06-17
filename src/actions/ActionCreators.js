@@ -73,7 +73,7 @@ export function changeWidgetSize(id, width, height, sizeClass) {
 
 export function diceWidgetRoll(id, sides) {
   const roll = Math.floor(Math.random() * sides) + 1;
-  console.log(`Roll: ${roll} on d${sides}.`);
+  // console.log(`Roll: ${roll} on d${sides}.`);
   return {
     id,
     sides,
@@ -84,6 +84,7 @@ export function diceWidgetRoll(id, sides) {
 
 export function diceWidgetReset(id) {
   return {
-
+    id,
+    type: DICE_WIDGET_RESET,
   };
 }

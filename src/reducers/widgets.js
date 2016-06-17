@@ -15,8 +15,7 @@ const initialState = Immutable.fromJS({
     sizeClass: 'thumbnail',
     content: {
       name: 'Explore the abandoned lighthouse',
-      slug: 'Abandoned light house might have treasure....',
-      description: '@#$%@#%',
+      description: 'Abandoned light house might have treasure....',
       assetType: 'encounter',
     },
   },
@@ -26,8 +25,7 @@ const initialState = Immutable.fromJS({
     sizeClass: 'normal',
     content: {
       name: 'Barter for a pawned item',
-      slug: 'Susie pawned her father\'s sword, now she needs it back!',
-      description: '@#$%@#%',
+      description: 'Susie pawned her father\'s sword, now she needs it back!',
       assetType: 'encounter',
     },
   },
@@ -89,7 +87,7 @@ function diceWidgetReset(state, action) {
   return state.updateIn([action.id, 'content'], (content) =>
     content
       .update('rolls', (rolls) => rolls.clear())
-      .update('sum', 0)
+      .set('sum', 0)
   );
 }
 

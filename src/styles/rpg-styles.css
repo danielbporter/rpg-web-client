@@ -6,6 +6,7 @@
 
 .widget {
     /*border: 1px solid black;*/
+    overflow: visible;
 }
 
 .item {
@@ -49,21 +50,15 @@
 }
 
 .asset-widget-name {
-    margin: 0px;
     position: relative;
-    margin: 5px;
-}
-
-.asset-widget-slug {
-    margin: 0px;
-    position: relative;
-    margin: 5px;
+    margin: 2px;
+    font-size: 10pt;
 }
 
 .asset-widget-description {
-    margin: 5px;
-    float: left;
     position: relative;
+    margin: 0px 2px 2px 2px;
+    font-size: 9pt;
 }
 
 .dice-widget {

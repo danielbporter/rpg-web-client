@@ -9,27 +9,43 @@ import {
 
 import {
   GRID_UNIT,
+  GRID_MARGIN,
 } from '../constants';
 
-// const GridItem = Immutable.Record({
-//   i: undefined,
-//   x: -1,
-//   y: -1,
-//   w: 1,
-//   h: 1,
-// });
+// const windowWidth = window.innerWidth;
+// const margin = 5;
+// const numCols = (windowWidth + margin) / (GRID_UNIT + margin);
+// const gridWidth = GRID_UNIT * Math.floor(windowWidth / GRID_UNIT);
+
+function getWidthAndCols() {
+  function gridWidth(cols, gridUnit, marginSize) {
+    return (cols * gridUnit) + ((cols - 1) * marginSize);
+  }
+
+  const screenWidth = window.innerWidth;
+  let cols = 1;
+  let width = gridWidth(cols, GRID_UNIT, GRID_MARGIN);
+  while (width <= screenWidth) {
+    cols++;
+    width = gridWidth(cols, GRID_UNIT, GRID_MARGIN);
+  }
+
+  return [width, cols];
+}
+
+const initialWidthAndCols = getWidthAndCols();
 
 const initialState = Immutable.fromJS({
   layout: {
     a: { i: 'a', x: 0, y: 0, w: 1, h: 1 },
-    b: { i: 'b', x: 2, y: 0, w: 4, h: 1 },
+    b: { i: 'b', x: 2, y: 0, w: 5, h: 1 },
     c: { i: 'c', x: 0, y: 2, w: 2, h: 1 },
     // d: { i: 'd', x: 1, y: 1, w: 1, h: 1 },
   },
-  width: 850,
-  cols: 10,
+  width: initialWidthAndCols[0],
+  cols: initialWidthAndCols[1],
   rowHeight: GRID_UNIT,
-  margin: [5, 5],
+  margin: [GRID_MARGIN, GRID_MARGIN],
   verticalCompact: false,
 });
 

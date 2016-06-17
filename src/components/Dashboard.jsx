@@ -95,6 +95,7 @@ class Dashboard extends Component {
 
   render() {
     const rglProps = {
+      isResizable: false,
       // onDrag: this.onDrag,
       // onDragStart: this.onDragStart,
       // onDragStop: this.onDragStop,
