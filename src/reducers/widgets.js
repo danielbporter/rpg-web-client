@@ -11,8 +11,8 @@ import {
 const initialState = Immutable.fromJS({
   a: {
     id: 'a',
-    type: 'AssetWidget',
-    sizeClass: 'thumbnail',
+    type: 'CardFun',
+    sizeClass: 'normal',
     content: {
       name: 'Explore the abandoned lighthouse',
       description: 'Abandoned light house might have treasure....',
