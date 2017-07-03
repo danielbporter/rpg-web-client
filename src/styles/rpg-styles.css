@@ -46,7 +46,8 @@
 }
 
 .asset-widget-full-header {
-
+  display: flex;
+    flex-direction: column;
 }
 
 .asset-widget-name {
