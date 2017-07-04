@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-
 import { addWidget as addWidgetAction } from '../../actions/ActionCreators';
 
 function mapDispatchToProps(dispatch) {
@@ -9,23 +8,12 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-class NewWidgetWidget extends Component {
+class FABWidget extends Component {
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    console.log('Click!');
-    this.props.addWidget({
-      type: 'AssetWidget',
-      sizeClass: 'thumbnail',
-      content: {
-        assetType: 'item',
-        name: 'From NWW',
-      },
-    });
-  }
 
   render() {
     // const props = {
@@ -54,10 +42,10 @@ class NewWidgetWidget extends Component {
   }
 }
 
-NewWidgetWidget.propTypes = {
+FABWidget.propTypes = {
   addWidget: PropTypes.func,
   children: PropTypes.any,
   className: PropTypes.string,
 };
 
-export default connect(() => Object(), mapDispatchToProps)(NewWidgetWidget);
+export default connect(() => Object(), mapDispatchToProps)(FABWidget);

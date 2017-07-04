@@ -39,7 +39,16 @@ const initialState = Immutable.fromJS({
       rolls: [[8, 20]],
     },
   },
-  // d: {
+  d: {
+    id: 'd',
+    type: 'FABWidget',
+    sizeClass: 'normal',
+    content: {
+      'add' 
+    },
+  },
+  
+  // e: {
   //   id: 'd',
   //   type: 'AssetWidget',
   //   sizeClass: 'thumbnail',
@@ -50,18 +59,18 @@ const initialState = Immutable.fromJS({
   // },
 });
 
-function addWidget(state, action) {
-  // const actionExample = {
-  //   type: WIDGET_ADD_WIDGET,
-  //   widget: {
-  //     id: '123453',
-  //     type: 'SomeWidget',
-  //     sizeClass: 'normal',
-  //     content: {},
-  //   },
-  // };
-  return state.set(action.widget.id, action.widget);
-}
+//function addWidget(state, action) {
+   //const actionExample = {
+     //type: WIDGET_ADD_WIDGET,
+     //widget: {
+       //id: '123453',
+       //type: 'SomeWidget',
+       //sizeClass: 'normal',
+       //content: {},
+     //},
+   //};
+  //return state.set(action.widget.id, action.widget);
+//}
 
 function removeWidget(state, action) {
   return state;
