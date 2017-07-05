@@ -39,14 +39,7 @@ const initialState = Immutable.fromJS({
       rolls: [[8, 20]],
     },
   },
-  d: {
-    id: 'd',
-    type: 'FABWidget',
-    sizeClass: 'normal',
-    content: {
-      'add' 
-    },
-  },
+  
   
   // e: {
   //   id: 'd',

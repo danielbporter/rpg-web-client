@@ -29,5 +29,4 @@ const appRoot = (
 
 const root = document.createElement('div');
 document.body.appendChild(root);
-
 render(appRoot, root);

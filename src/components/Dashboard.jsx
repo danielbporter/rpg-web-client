@@ -110,16 +110,18 @@ class Dashboard extends Component {
     const dashProps = this.props.dashboard;
     dashProps.layout = Object.freeze(dashProps.layout);
 
+// PETER notes: Why doesn't stuff goe here?
+
     return (
       <div className="dashboard">
-        <h1>Hello, World!</h1>
-        <ReactGridLayout {...rglProps} {...this.props.dashboard}>
+      
+          <ReactGridLayout {...rglProps} {...this.props.dashboard}>
           {/* this.props.children */}
           {renderedWidgets}
-        </ReactGridLayout>
+          </ReactGridLayout>
       </div>
-    );
-  }
+      );
+    }
 }
 
 Dashboard.propTypes = {

@@ -4,6 +4,16 @@
           box-sizing: border-box;
 }
 
+.fab {
+    /*position:fixed;*/ 
+    width:100%; 
+    height:70px; 
+    padding:5px; 
+    bottom:0px;
+    z-index: 4;
+    float: right;
+}
+
 .widget {
     /*border: 1px solid black;*/
     overflow: visible;
