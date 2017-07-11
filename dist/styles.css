@@ -506,7 +506,7 @@ textarea {
 .dice-widget-sum-display {
     clear: left;
 }
-.react-grid-layout {
+./*react-grid-layout {
   position: relative;
   transition: height 200ms ease;
   background-color: #dddddd;
@@ -520,9 +520,9 @@ textarea {
 }
 .react-grid-item.resizing {
   z-index: 1;
-}
+}*/
 
-.react-grid-item.react-draggable-dragging {
+/*.react-grid-item.react-draggable-dragging {
   transition: none;
   z-index: 3;
 }
@@ -537,7 +537,7 @@ textarea {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-}
+}*/
 
 .react-grid-item > .react-resizable-handle {
   position: absolute;
