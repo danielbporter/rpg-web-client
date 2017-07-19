@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FAB from './core/FAB';
 import Dashboard from './Dashboard';
 import headerNavtoolbar from './core/headerNavtoolbar';
+import AppBar from './core/AppBar';
 // import AssetWidget from './widgets/AssetWidget';
 // only the 
 // import * as widgets from './widgets';
@@ -17,28 +18,25 @@ import headerNavtoolbar from './core/headerNavtoolbar';
 class App extends Component {
   render() {
     return (
-    	<div className="wrapper">
-	      <header class="header">
-	  	     <div class="toptoolbar">
-	      		<div class="header">
-	      		</div>
-	      	 </div>
-	     	 </header>
-	      		<headerNavToolbar/>
+    	<div class="wrapper ">
+	      <nav id="toptoolbar" class= "headerNavtoolbar">
+	      		<headerNavtoolbar className="headerNavtoolbar"/>
+	      			</nav>
+	      <nav id="menu" class="menu-wrapper">
+	      		<div class="scroller">
+	      			<AppBar/> 
+		      		</div>
+	      		</nav>
 	      <Dashboard/>
-	      <div class="fab">
-	      	<FAB className="fab"/> 
-	      </div>
-	    </div>
+	      <div id="FAB" class="FAB">
+	      			<FAB/> 
+	      		</div>
+	     </div>    
     );
   }
 }
 
 export default App;
 
+//appBar for the nav 
 
-//Some more bad code <div class="headerNavToolbar">
-		     //<headerNavtoolbar className="toptoolbar">
-	      		//<div className="header">
-	      		//</div>
-	      	   //</headerNavtoolbar>

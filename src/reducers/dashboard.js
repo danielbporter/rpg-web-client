@@ -45,7 +45,7 @@ const initialState = Immutable.fromJS({
     // d: { i: 'd', x: 1, y: 1, w: 1, h: 1 },
   },
   width: initialWidthAndCols[0],
-  cols: initialWidthAndCols[1],
+  cols: initialWidthAndCols[3],
   rowHeight: GRID_UNIT,
   margin: [GRID_MARGIN, GRID_MARGIN],
   verticalCompact: false,

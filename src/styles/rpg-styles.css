@@ -4,7 +4,18 @@
           box-sizing: border-box;
 }
 
+.appbar {
+      /*position:fixed;*/ 
+    position: absolute;
+    left: 1rem;
+    /*width:100%; 
+    height:70px; 
+    padding:5px; 
+    bottom:0px;*/
+    z-index: 4;
+    /*float: right;*/
 
+}
 
 
 .headerNavToolbar {
@@ -12,20 +23,29 @@
     height:70px; 
     padding:5px; 
     bottom:5px;
-    z-index: 2;
+    z-index: 6;
     float: top;
 }
 
+.menu-wrapper {
 
-
-.fab {
-    /*position:fixed;*/ 
-    width:100%; 
+ width:100%; 
     height:70px; 
     padding:5px; 
-    bottom:0px;
-    z-index: 4;
-    float: right;
+    bottom:5px;
+    z-index: 2;
+    float: left;
+
+}
+
+
+.FAB {
+   
+    z-index: 5;
+    position: fixed;
+    bottom: 4rem;
+    right: 5rem;
+    
 }
 
 .widget {
@@ -88,6 +108,9 @@
 
 .dice-widget {
     background: #22FFFF;
+    position: relative;
+    transition: all 200ms ease;
+    transition-property: left, top;
 }
 
 .dice-widget-roll-button {
