@@ -1,7 +1,7 @@
 import React from 'react';
 import AssetWidget from './AssetWidget';
 import DiceWidget from './DiceWidget';
-import CardFun from './CardFun';
+import CardFun from './AssetWidget/CardFun';
 //import headerNavToolbar from './core/headerNavToolbar'
 
 

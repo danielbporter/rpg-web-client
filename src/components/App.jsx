@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FAB from './core/FAB';
 import Dashboard from './Dashboard';
-import headerNavtoolbar from './core/headerNavtoolbar';
+import ToolbarExamplesSimple from './core/ToolbarExamplesSimple';
 import AppBar from './core/AppBar';
 // import AssetWidget from './widgets/AssetWidget';
 // only the 
@@ -19,15 +19,10 @@ class App extends Component {
   render() {
     return (
     	<div class="wrapper ">
-	      <nav id="toptoolbar" class= "headerNavtoolbar">
-	      		<headerNavtoolbar className="headerNavtoolbar"/>
-	      			</nav>
-	      <nav id="menu" class="menu-wrapper">
-	      		<div class="scroller">
-	      			<AppBar/> 
-		      		</div>
+	      <nav id="topMenu">
+	      		<ToolbarExamplesSimple/>
 	      		</nav>
-	      <Dashboard/>
+	     	      <Dashboard/>
 	      <div id="FAB" class="FAB">
 	      			<FAB/> 
 	      		</div>
@@ -40,3 +35,8 @@ export default App;
 
 //appBar for the nav 
 
+//<nav id="menu" class="menu-wrapper">
+//<div class="scroller">
+	 //<AppBar/> 
+		//  </div>
+	   //</nav>

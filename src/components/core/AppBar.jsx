@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react';
 import Appbar from 'material-ui/Appbar';
 
 
-
 class appbar extends Component {
   // constructor() {
   //   super();

@@ -8,10 +8,12 @@ import {
   DICE_WIDGET_RESET,
 } from '../actions/ActionTypes';
 
+//These change how/hype of widgets are reduced. 
+
 const initialState = Immutable.fromJS({
   a: {
     id: 'a',
-    type: 'CardFun',
+    type: 'AssetWidget',
     sizeClass: 'normal',
     content: {
       name: 'Explore the abandoned lighthouse',
@@ -42,14 +44,15 @@ const initialState = Immutable.fromJS({
   
   
   // e: {
-  //   id: 'd',
-  //   type: 'AssetWidget',
-  //   sizeClass: 'thumbnail',
+  //   id: 'e',
+  //   type: 'RanfiltratorWidget',
+  //   sizeClass: 'Nrmal',
   //   content: {
   //     name: 'D',
-  //     assetType: 'locale',
+  //     assetType:
   //   },
   // },
+
 });
 
 //function addWidget(state, action) {

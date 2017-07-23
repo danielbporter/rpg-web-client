@@ -39,10 +39,11 @@ const initialWidthAndCols = getWidthAndCols();
 
 const initialState = Immutable.fromJS({
   layout: {
-    a: { i: 'a', x: 0, y: 0, w: 4, h: 2 },
-    b: { i: 'b', x: 2, y: 0, w: 5, h: 1 },
-    c: { i: 'c', x: 0, y: 2, w: 3, h: 2 },
-    // d: { i: 'd', x: 1, y: 1, w: 1, h: 1 },
+    a: { i: 'a', x: 4, y: 6, w: 4, h: 2 },
+    b: { i: 'b', x: 2, y: 1, w: 5, h: 1 },
+    c: { i: 'c', x: 1, y: 3, w: 3, h: 2 },
+    // d: { i: 'd', x: 0, y: 2, w: 3, h: 2 },
+    // e: { i: 'd', x: 1, y: 1, w: 1, h: 1 },
   },
   width: initialWidthAndCols[0],
   cols: initialWidthAndCols[3],

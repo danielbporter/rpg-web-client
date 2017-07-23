@@ -11,7 +11,7 @@ import {
 
 const SIZE_CLASSES = {
   thumbnail: [1, 1],
-  normal: [5, 1],
+  normal: [4, 1],
   full: [4, 2],
 };
 
@@ -140,7 +140,7 @@ class AssetWidget extends Component {
               // paddingLeft: '5px',
               paddingRight: '0px',
               overflow: 'hidden',
-              // textOverflow: 'ellipsis',
+              textOverflow: 'ellipsis',
             }}
         />
       </Card>

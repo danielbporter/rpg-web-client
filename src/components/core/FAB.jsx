@@ -28,6 +28,22 @@ class FAB extends Component {
 
 
 
+FAB.propTypes = {
+  addWidget: PropTypes.func,
+  children: PropTypes.any,
+  className: PropTypes.string,
+};
+
+//export default connect(() => Object(), mapDispatchToProps)(FAB);
+export default FAB;
+
+
+
+
+
+
+
+
 
 
 
@@ -52,13 +68,3 @@ class FAB extends Component {
   //     </div>
   //   );
   // }
-
-
-FAB.propTypes = {
-  addWidget: PropTypes.func,
-  children: PropTypes.any,
-  className: PropTypes.string,
-};
-
-//export default connect(() => Object(), mapDispatchToProps)(FAB);
-export default FAB;
