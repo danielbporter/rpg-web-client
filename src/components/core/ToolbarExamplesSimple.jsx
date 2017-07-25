@@ -35,7 +35,9 @@ handleChange(event, index, value) {
       <Toolbar>
         <ToolbarGroup firstChild={true}>
           <FlatButton
-            icon={<NavigationMenu id="NavigationMenu"/>}
+            icon={<NavigationMenu id="NavigationMenu"/>
+            //onChange={this.NAV_MENU_TOGGLE}
+          }
             //style={style}
               />
           <ToolbarTitle text="dmprov" />

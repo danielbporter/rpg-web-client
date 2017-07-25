@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import FAB from './core/FAB';
 import Dashboard from './Dashboard';
 import ToolbarExamplesSimple from './core/ToolbarExamplesSimple';
-import AppBar from './core/AppBar';
 // import AssetWidget from './widgets/AssetWidget';
 // only the 
 // import * as widgets from './widgets';

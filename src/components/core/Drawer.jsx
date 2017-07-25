@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
+
+import NAV_MENU_TOGGLE from 'actions/ActionTypes';
 
 export default class Drawer extends React.Component {
 
@@ -11,20 +12,14 @@ export default class Drawer extends React.Component {
     this.state = {open: false};
   }
 
-  handleToggle = () => this.setState({open: !this.state.open});
+  NAV_MENU_TOGGLE = () => this.setState({open: !this.state.open});
 
   render() {
     return (
-      <div>
-        <RaisedButton
-          label="Toggle Drawer"
-          onTouchTap={this.handleToggle}
-        />
-        <Drawer open={this.state.open}>
+      <Drawer open={this.state.open}>
           <MenuItem>Menu Item</MenuItem>
           <MenuItem>Menu Item 2</MenuItem>
         </Drawer>
-      </div>
     );
   }
 }
