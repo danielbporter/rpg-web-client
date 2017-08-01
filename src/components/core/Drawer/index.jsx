@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import NAV_MENU_TOGGLE from 'actions/ActionTypes';
 import { connect } from 'react-redux';
 import {
-  diceWidgetRoll,
-  diceWidgetReset,
+  //actions for drawer
 } from '../../../actions/ActionCreators';
 import {
   Card,
@@ -10,11 +12,15 @@ import {
   CardText,
 } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import DiceButton from './DiceButton';
+import NestedList from 'material-ui';
+
 // import SumDisplay from './SumDisplay';
 // import ResetButton from './ResetButton';
 
 // the information this component requires from redux
+
+// export default class drawer extends React.Component {
+
 function mapStateToProps(state) {
   // empty because this component gets its information from the dashboard-widget interaction
   return {};
@@ -23,13 +29,15 @@ function mapStateToProps(state) {
 // the actions this component will perform, passed in by redux
 function mapDispatchToProps(dispatch) {
   return {
-    rollFunction: (id, sides) => dispatch(diceWidgetRoll(id, sides)),
-    resetFunction: (id) => dispatch(diceWidgetReset(id)),
+
+    // @Peter drawer functions (this is needed)
+    // rollFunction: (id, sides) => dispatch(diceWidgetRoll(id, sides)),
+    // resetFunction: (id) => dispatch(diceWidgetReset(id)),
   };
 }
 
 // declare a new component, DiceWidget
-class DiceWidget extends Component {
+class Drawer extends Component {
 
   // build a diceButton with some number of sides
   // diceButton(sides, rollFunc) {
@@ -131,9 +139,11 @@ class DiceWidget extends Component {
 }
 
 // All the props this component will have, and their types
-DiceWidget.propTypes = {
+Drawer.propTypes = {
   // component props
   children: PropTypes.any,
+  className: PropTypes.string,
+  open: PropTypes.bool
 
   // widget props
   className: PropTypes.string,
@@ -147,7 +157,33 @@ DiceWidget.propTypes = {
   // redux-dispatch props
   resetFunction: PropTypes.func,
   rollFunction: PropTypes.func,
+
+};
+
 };
 
 // connect DiceWidget to redux and export the connected thing as DiceWidget
-export default connect(mapStateToProps, mapDispatchToProps)(DiceWidget);
+export default connect(mapStateToProps, mapDispatchToProps)(Drawer);
+
+
+class Drawer extends Component {
+    constructor(props) {
+    super(props);
+    this.state = {open: false};
+    }
+
+    handleToggle = () => this.setState({open: !this.state.open});
+
+    render() {
+     return (
+      <div className="Drawer">
+          <Drawer open={this.state.open}>
+              <MenuItem>Menu Item</MenuItem>
+              <MenuItem>Menu Item 2</MenuItem>
+        </Drawer>
+    </div>
+         );
+    }
+}
+
+

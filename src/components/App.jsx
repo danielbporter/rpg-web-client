@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FAB from './core/FAB';
 import Dashboard from './Dashboard';
-import ToolbarExamplesSimple from './core/ToolbarExamplesSimple';
+import ToolbarTop from './core/Toolbar/ToolbarTop';
 // import AssetWidget from './widgets/AssetWidget';
 // only the 
 // import * as widgets from './widgets';
@@ -19,9 +19,9 @@ class App extends Component {
     return (
     	<div class="wrapper ">
 	      <nav id="topMenu">
-	      		<ToolbarExamplesSimple/>
+	      		<ToolbarTop/>
 	      		</nav>
-	     	      <Dashboard/>
+	     	    <Dashboard/>
 	      <div id="FAB" class="FAB">
 	      			<FAB/> 
 	      		</div>

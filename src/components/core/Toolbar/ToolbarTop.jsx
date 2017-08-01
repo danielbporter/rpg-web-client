@@ -13,10 +13,14 @@ import {
   ToolbarTitle } from 'material-ui/Toolbar';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
+import ActionSettings from 'material-ui/svg-icons/action/settings';
+import IconAccount from 'material-ui/svg-icons/action/account-circle'; 
+//import Avatar from 'material-ui/Avatar';
+import Drawer from 'material-ui/Drawer';
 import {fullBlack} from 'material-ui/styles/colors';
+//import NavButton from 'components/core/Toolbar/NavButton'
 
-
-export default class ToolbarExamplesSimple extends React.Component {
+export default class ToolbarTop extends React.Component {
 
   constructor(props) {
     super(props);
@@ -26,7 +30,7 @@ export default class ToolbarExamplesSimple extends React.Component {
   }
 
   // handleChange = (event, index, value) => this.setState({value});
-handleChange(event, index, value) {
+  handleChange(event, index, value) {
     this.setState({value});
     }
 
@@ -34,12 +38,13 @@ handleChange(event, index, value) {
     return (
       <Toolbar>
         <ToolbarGroup firstChild={true}>
-          <FlatButton
-            icon={<NavigationMenu id="NavigationMenu"/>
-            //onChange={this.NAV_MENU_TOGGLE}
-          }
-            //style={style}
-              />
+          <IconMenu
+            iconButtonElement={
+              <IconButton touch={true}>
+                <NavigationMenu />
+              </IconButton>
+            }>
+          </IconMenu>
           <ToolbarTitle text="dmprov" />
           <ToolbarSeparator />
           <DropDownMenu value={this.state.value} onChange={this.handleChange}>
@@ -60,7 +65,17 @@ handleChange(event, index, value) {
           <IconMenu
             iconButtonElement={
               <IconButton touch={true}>
-                <NavigationExpandMoreIcon />
+                <ActionSettings />
+              </IconButton>
+            }
+          >
+            <MenuItem primaryText="Download" />
+            <MenuItem primaryText="More Info" />
+          </IconMenu>
+          <IconMenu
+            iconButtonElement={
+              <IconButton touch={true}>
+                <IconAccount/>
               </IconButton>
             }
           >
@@ -73,14 +88,15 @@ handleChange(event, index, value) {
   }
 }
 
-ToolbarExamplesSimple.propTypes = {
+ToolbarTop.propTypes = {
      children: PropTypes.node, 
      className: PropTypes.string,
      style: PropTypes.object,
+     open: PropTypes.bool,
 };
 
 
-export default ToolbarExamplesSimple; 
+export default ToolbarTop; 
 
 //The real deal is below 
 //more comment 
@@ -150,4 +166,3 @@ export default ToolbarExamplesSimple;
 // {
 // //comment 
 // //more comment 
-// }

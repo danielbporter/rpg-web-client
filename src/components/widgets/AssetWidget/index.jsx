@@ -3,16 +3,19 @@ import { GRID_UNIT } from '../../../constants';
 import Thumbnail from './Thumbnail';
 
 import Avatar from 'material-ui/Avatar';
-
+import IconButton from 'material-ui/IconButton';
+import ExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
 import {
   Card,
   CardHeader,
+  CardActions,
+  CardText,
 } from 'material-ui/Card';
-
+//0 here makes the thumbnail the right size for some reason. prepare for bug
 const SIZE_CLASSES = {
-  thumbnail: [1, 1],
+  thumbnail: [0, 1],
   normal: [4, 1],
-  full: [4, 2],
+  full: [4, 3],
 };
 
 class AssetWidget extends Component {
@@ -24,6 +27,9 @@ class AssetWidget extends Component {
     this.handleContextMenu = this.handleContextMenu.bind(this);
     this.renderThumbnailContents = this.renderThumbnailContents.bind(this);
     this.renderContents = this.renderContents.bind(this);
+    // this.handleExpand = this.handleExpand.bind(this);
+    // this.handleReduce = this.handleReduce.bind(this);
+    // this.handleExpandChange = this.handleExpandChange.bind(this);
   }
 
   getClassName() {
@@ -59,6 +65,39 @@ class AssetWidget extends Component {
         return;
     }
   }
+
+//expand change  stuff that probably will bugg
+
+  // handleExpandChange() {
+  //   switch (this.props.sizeClass) {
+  //     case 'expanded: true':  {
+  //       return this.setState({expanded: expanded});
+  //   }
+  // }
+
+
+  // handleExpand() {
+  //   switch (this.props.handleExpandChange) {
+  //     case 'expanded: false':
+  //       return this.setState({expanded: true});
+  //     case 'expanded: true':
+  //       return  this.setstate({expanded: false});  
+  //     default:
+  //       return this.expanded: false);
+  //   }
+  // }
+
+  // handleReduce() {
+  //   switch (this.props.handleExpandChange) {
+  //     case 'expanded: true':
+  //       return this.setState({expanded: false});
+  //     case 'expanded: false':
+  //       return  this.setstate({expanded: true});  
+  //     default:
+  //       return this.expanded: true);
+  //   }
+  // }
+
 
   renderContents() {
     switch (this.props.sizeClass) {
@@ -127,8 +166,9 @@ class AssetWidget extends Component {
           avatar={
             <Avatar
               src={'/media/encounter_icon.png'}
-              // style={{ borderRadius: '0%', margin: '5px', border: '0px' }}
-              // size={GRID_UNIT-10}
+              style={{ borderRadius: '0%', margin: '5px', border: '0px' }}
+              size={GRID_UNIT-10}
+         
             />
           }
           style={
@@ -142,6 +182,7 @@ class AssetWidget extends Component {
               overflow: 'hidden',
               textOverflow: 'ellipsis',
             }}
+          showExpandableButton={true}
         />
       </Card>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import RanfiltratorWidget from './RanfiltratorWidget';
 import AssetWidget from './AssetWidget';
 import DiceWidget from './DiceWidget';
 import CardFun from './AssetWidget/CardFun';
@@ -12,7 +13,7 @@ export const WidgetFactories = {
   AssetWidget: React.createFactory(AssetWidget),
   DiceWidget: React.createFactory(DiceWidget),
   CardFun: React.createFactory(CardFun),
-  //headerNavToolbar: React.createFactory(headerNavToolbar),
+  RanfiltratorWidget: React.createFactory(RanfiltratorWidget),
 };
 
 // export {

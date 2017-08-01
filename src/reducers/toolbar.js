@@ -1,68 +1,15 @@
+// headerNavToolbarReducer
+
 import Immutable from 'immutable';
 import {
   WIDGET_ADD_WIDGET,
   WIDGET_REMOVE_WIDGET,
   WIDGET_CHANGE_CONTENT,
   WIDGET_CHANGE_SIZE,
-  DICE_WIDGET_ROLL,
-  DICE_WIDGET_RESET,
-  //RANFILTRATOR_WIDGET_RUN,
+  //togglenavbutton
+  //account button 
+  //other stuff button
 } from '../actions/ActionTypes';
-
-//These change how/hype of widgets are reduced. 
-
-const initialState = Immutable.fromJS({
-  a: {
-    id: 'a',
-    type: 'AssetWidget',
-    sizeClass: 'normal',
-    content: {
-      name: 'Explore the abandoned lighthouse',
-      description: 'Abandoned light house might have treasure....',
-      assetType: 'encounter',
-    },
-  },
-  b: {
-    id: 'b',
-    type: 'AssetWidget',
-    sizeClass: 'normal',
-    content: {
-      name: 'Barter for a pawned item',
-      description: 'Susie pawned her father\'s sword, now she needs it back!',
-      assetType: 'encounter',
-    },
-  },
-  c: {
-    id: 'c',
-    type: 'DiceWidget',
-    sizeClass: 'normal',
-    content: {
-      dice: [20, 6],
-      sum: 8,
-      rolls: [[8, 20]],
-    },
-  },
-  e: {
-    id: 'e',
-    type: 'RanfiltratorWidget',
-    sizeClass: 'large',
-    content: {    
-    },
-  },
-});
-
-//function addWidget(state, action) {
-   //const actionExample = {
-     //type: WIDGET_ADD_WIDGET,
-     //widget: {
-       //id: '123453',
-       //type: 'SomeWidget',
-       //sizeClass: 'normal',
-       //content: {},
-     //},
-   //};
-  //return state.set(action.widget.id, action.widget);
-//}
 
 function removeWidget(state, action) {
   return state;

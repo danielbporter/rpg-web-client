@@ -11,6 +11,12 @@ import {
 
   DICE_WIDGET_ROLL,
   DICE_WIDGET_RESET,
+
+  NAV_MENU_TOGGLE,
+  NAV_MENU_CLOSE,
+
+  RANFILTRATOR_WIDGET_RUN
+
 } from './ActionTypes';
 
 import uuid from 'node-uuid';
@@ -82,9 +88,34 @@ export function diceWidgetRoll(id, sides) {
   };
 }
 
+
 export function diceWidgetReset(id) {
   return {
     id,
     type: DICE_WIDGET_RESET,
   };
 }
+
+export function navMenuToggle(id) {
+  return {
+    id,
+    type: NAV_MENU_TOGGLE,
+  };
+}
+
+export function navMenuClose(id) {
+  return {
+    id,
+    type: NAV_MENU_CLOSE,
+  };
+}
+
+
+
+export function ranfiltratorWidgetRun(id) {
+  return {
+    id,
+    type: RANFILTRATOR_WIDGET_RUN,
+  };
+}
+

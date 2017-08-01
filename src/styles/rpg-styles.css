@@ -5,29 +5,24 @@
 }
 
 
-
-
-
 .menu-wrapper {
-
  width:100%; 
     height:70px; 
     padding:5px; 
     bottom:5px;
     z-index: 2;
     float: left;
-
 }
 
 
 .FAB {
-   
-    z-index: 5;
+    z-index: 3;
     position: fixed;
     bottom: 4rem;
     right: 5rem;
     
 }
+/*this does do something to widgets */
 
 .widget {
     /*border: 1px solid black;*/
@@ -97,6 +92,13 @@
     transition-property: left, top;
 }
 
+.ranfiltrator-widget {
+    background: #22FFFF;
+    position: relative;
+    transition: all 200ms ease;
+    transition-property: left, top;
+}
+
 .dice-widget-roll-button {
     border: solid black 1px;
     width: 10px;
@@ -104,13 +106,14 @@
     float: left;
     margin: 5px;
     text-align: center;
-/*    vertical-align: middle;*/
+    vertical-align: middle;
     border-radius: 50%;
 }
 
 .dice-widget-roll-text {
     display: inline-block;
     vertical-align: middle;
+    float: right;
 }
 
 .dice-widget-reset-button {
