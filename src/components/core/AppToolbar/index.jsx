@@ -119,27 +119,14 @@ constructor(props) {
 
     // build other buttons
    const navButton = this.navButton(() => this.props.toggleFunction(state));
-//on request change comments - remember to add < back in 
-            //   MenuItem onClick={this.handleClose(this)}>Menu Item 1</MenuItem>
-            //  MenuItem onClick={this.handleClose(this)}>Menu Item 2</MenuItem>
-            // MenuItem onClick={this.handleClose(this)}>Menu Item 3</MenuItem>
+    
 
     // return the widget!
     // widget has the properties from its parent and what it set itself
     // it also contains its roll buttons and reset button and the children
     // its parent gave it (react grid layout stuff, e.g. Resize Handle)
-    return (
+   return (
       <div {...toolbar.Props}>
-        <Drawer
-            docked={false}
-            open={this.state.open}
-            onRequestChange={(open) => this.setState({open})}
-            >
-              <MenuItem>Menu Item 1</MenuItem>
-              <MenuItem>Menu Item 2</MenuItem>
-              <MenuItem>Menu Item 3</MenuItem>
-
-        </Drawer>
         <Toolbar>
           <ToolbarGroup firstChild={true}>
             <IconMenu
@@ -152,7 +139,7 @@ constructor(props) {
                 }
               />
             <ToolbarTitle text="dmprov"/>
-            <ToolbarSeparator />
+            <ToolbarSeparator/>
             <DropDownMenu value={this.state.value} onChange={this.handleChange}>
               <MenuItem value={1} primaryText="All Broadcasts" />
               <MenuItem value={2} primaryText="All Voice" />
@@ -161,65 +148,64 @@ constructor(props) {
               <MenuItem value={5} primaryText="Complete Text" />
               <MenuItem value={6} primaryText="Active Voice" />
               <MenuItem value={7} primaryText="Active Text" />
-            </DropDownMenu>
-          </ToolbarGroup>
+              </DropDownMenu>
+              </ToolbarGroup>
           <ToolbarGroup>
             <ToolbarTitle text="Search" />
             <FontIcon className="muidocs-icon-custom-sort" />
-            <ToolbarSeparator />
+            <ToolbarSeparator/>
+          </ToolbarGroup>
+          <ToolbarGroup>
+            <IconMenu
+              iconButtonElement={
+                <IconButton touch={true}>
+                  <SocialNotificationsActive/>
+                </IconButton>
+              }/> 
             <IconMenu
               iconButtonElement={
                 <IconButton touch={true}>
                   <AppsIcon/>
                 </IconButton>
               }
-            >
+              >
               <MenuItem primaryText="Bazaar" />
               <MenuItem primaryText="Upload" />
-            </IconMenu>
-            <Icoolbar>
-        {NavButton}
-        </div>onMenu
+             </IconMenu>
+            <IconMenu
               iconButtonElement={
-                <IconButton>
-                  <IconAccount touch={true}/>
-
+                <IconButton touch={true}>
+                  <IconAccount/>
                 </IconButton>
-              }
-            >
-              <AccountPopoverMenu touch={true} />
-            </IconMenu>
-          </ToolbarGroup>
-        </T
+              }/> 
+            </ToolbarGroup>
+          </Toolbar>
+      </div> 
     );
-  }
-}
+   }
+ }
+  Toolbar.propTypes = {
+    // component props
+    children: PropTypes.any,
 
-// All the props this component will have, and their types
-Toolbar.propTypes = {
-  // component props
-  children: PropTypes.any,
+    // toolbar props
+    className: PropTypes.string,
+    id: PropTypes.string,
 
-  // toolbar props
-  className: PropTypes.string,
-  id: PropTypes.string,
+    // redux-content props
+   
 
-  // redux-content props
- 
+    // redux-dispatch props
 
-  // redux-dispatch props
+    toggleFunction: PropTypes.func,
+    closeFunction:PropTypes.func,
 
-  toggleFunction: PropTypes.func,
-  closeFunction:PropTypes.func,
+    //drawer props 
 
-  //drawer props 
-
-  open: PropTypes.bool,
-  docked: PropTypes.bool,
-  children: PropTypes.node,
-  onRequestChange: PropTypes.func,
-
-
+    open: PropTypes.bool,
+    docked: PropTypes.bool,
+    children: PropTypes.node,
+    onRequestChange: PropTypes.func,
 };
 
 // connect AppToolbar to redux and export the connected thing as AppToolbar

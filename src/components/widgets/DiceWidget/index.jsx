@@ -43,11 +43,27 @@ class DiceWidget extends Component {
   // build a reset button
   resetButton(resetFunc) {
     return (
-      <div className={'dice-widget-reset-button'} onClick={resetFunc}>
-        Reset
+      <div className={'dice-widget-reset-button'}>
+        <RaisedButton onClick={resetFunc} label="Reset" 
+            style={
+              {
+              padding: '10px',
+              float: 'right',
+              }}
+            />
       </div>
     );
   }
+
+  //Case it doesn't work. below is a copy of the reset button bulid
+
+  //   resetButton(resetFunc) {
+  //   return (
+  //     <div className={'dice-widget-reset-button'} onClick={resetFunc}>
+  //       Reset
+  //     </div>
+  //   );
+  // }
 
   // build the sum display
   sumDisplay(sumValue) {
@@ -114,12 +130,6 @@ class DiceWidget extends Component {
           <CardText>
              Roll some dice
           </CardText>  
-           <RaisedButton label="Roll" 
-            style={
-              {
-              padding: '10px',
-              }}
-            />
          </Card>
         {rollButtons}
         {sumDisplay}
@@ -147,6 +157,7 @@ DiceWidget.propTypes = {
   // redux-dispatch props
   resetFunction: PropTypes.func,
   rollFunction: PropTypes.func,
+
 };
 
 // connect DiceWidget to redux and export the connected thing as DiceWidget
