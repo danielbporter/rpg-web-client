@@ -13,7 +13,7 @@ const DiceButton = (props) =>
     </Button>
 ;
 
-DiceButton.propTypes = {
+DrawerToggle.propTypes = {
   onClick: PropTypes.func,
   sides: PropTypes.number.isRequired,
 };

@@ -15,7 +15,9 @@ import {
   NAV_MENU_TOGGLE,
   NAV_MENU_CLOSE,
 
-  RANFILTRATOR_WIDGET_RUN
+  RANFILTRATOR_WIDGET_RUN,
+
+  ACCOUNT_POPOVER_MENU,
 
 } from './ActionTypes';
 
@@ -96,14 +98,14 @@ export function diceWidgetReset(id) {
   };
 }
 
-export function navMenuToggle(id) {
+export function navMenuToggle(id, state, action) {
   return {
     id,
     type: NAV_MENU_TOGGLE,
   };
 }
 
-export function navMenuClose(id) {
+export function navMenuClose(id, state, action) {
   return {
     id,
     type: NAV_MENU_CLOSE,
@@ -119,3 +121,16 @@ export function ranfiltratorWidgetRun(id) {
   };
 }
 
+export function handleChange (event, index, value) {
+  return {
+    id,
+    type: HANDLE_CHANGE,
+  };
+}
+
+export function accountPopoverMenu (event, state, action) {
+  return {
+    id,
+    type: ACCOUNT_POPOVER_MENU,
+  };
+}

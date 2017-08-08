@@ -1,16 +1,12 @@
 import Immutable from 'immutable';
 import {
-  WIDGET_ADD_WIDGET,
-  WIDGET_REMOVE_WIDGET,
-  WIDGET_CHANGE_CONTENT,
-  WIDGET_CHANGE_SIZE,
-  NAV_MENU_TOGGLE
+   NAV_MENU_TOGGLE
   NAV_MENU_CLOSE
 } from '../actions/ActionTypes';
 
 
 const initialState = Immutable.fromJS({
-	closed: {
+	  closed: {
     id: 'closed',
     type: 'drawer',
     sizeClass: 'normal',
@@ -21,16 +17,20 @@ const initialState = Immutable.fromJS({
 
 };
 
-function NAV_MENU_TOGGLE(state, action) {
+function navMenuToggle(state, action) {
   return state;
 }
 
-function NAV_MENU_CLOSE(state, action) {
+function navMenuClose(state, action) {
   return state;
 }
 
 function OnRequestChange(state, action) {
   return state;
+}
+
+function handleChange(event, index, value) {
+  return undefined.setState({ value: value })
 }
 
 //function(open: boolean, reason: string) => void
