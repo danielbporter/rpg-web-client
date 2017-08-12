@@ -108,7 +108,7 @@ RanfiltratorWidget.propTypes = {
 
   // widget props
   className: PropTypes.string,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 
   // redux-content props
   asset: PropTypes.arrayOf(PropTypes.number),
@@ -119,4 +119,5 @@ RanfiltratorWidget.propTypes = {
 };
 
 // connect RanfiltratorWidget to redux and export the connected thing as RanfiltratorWidget
+// ERROR: mapDispatchToProps() in Connect(RanfiltratorWidget) must return a plain object. Instead received undefined.
 export default connect(mapStateToProps, mapDispatchToProps)(RanfiltratorWidget);

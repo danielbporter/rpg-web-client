@@ -47,23 +47,15 @@ class DiceWidget extends Component {
         <RaisedButton onClick={resetFunc} label="Reset" 
             style={
               {
-              padding: '10px',
-              float: 'right',
+              padding: '0px',
+              position: 'relative',
+              left: 100,
+              bottom: 20
               }}
             />
       </div>
     );
   }
-
-  //Case it doesn't work. below is a copy of the reset button bulid
-
-  //   resetButton(resetFunc) {
-  //   return (
-  //     <div className={'dice-widget-reset-button'} onClick={resetFunc}>
-  //       Reset
-  //     </div>
-  //   );
-  // }
 
   // build the sum display
   sumDisplay(sumValue) {
@@ -78,7 +70,9 @@ class DiceWidget extends Component {
 
     return (
       <div className={'dice-widget-sum-display'}>
+      <CardText>
         {displayValue}
+        </CardText>
       </div>
     );
   }
@@ -105,12 +99,21 @@ class DiceWidget extends Component {
     //   this.diceButton(d, () => this.props.rollFunction(id, d)));
 
     const rollButtons = this.props.dice.map(sides =>
-      <DiceButton
+   
+     <div className={'dice-widget-roll-button'}>
+        <RaisedButton 
         sides={sides}
         onClick={() => this.props.rollFunction(this.props.id, sides)}
-      />
+        label='Roll'
+        style={
+              {
+              padding: '0px',
+              position: 'relative',
+              left: 20,
+              }}
+            />
+      </div>
     );
-
 
     const sumDisplay = this.sumDisplay(this.props.sum);
 
@@ -125,16 +128,17 @@ class DiceWidget extends Component {
       <div {...widgetProps}>
         <Card>
           <CardHeader
-            title="Dice"
+            title="Dice Widget"
             />
           <CardText>
              Roll some dice
           </CardText>  
-         </Card>
+         
         {rollButtons}
         {sumDisplay}
         {resetButton}
         {children}
+        </Card>
       </div>
     );
   }
@@ -157,6 +161,7 @@ DiceWidget.propTypes = {
   // redux-dispatch props
   resetFunction: PropTypes.func,
   rollFunction: PropTypes.func,
+  toggleFunction: PropTypes.func,
 
 };
 

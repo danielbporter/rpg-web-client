@@ -99,6 +99,7 @@ export function diceWidgetReset(id) {
 }
 
 export function navMenuToggle(id, state, action) {
+  const  handleChange= () => this.setState({open: !this.state.open});
   return {
     id,
     type: NAV_MENU_TOGGLE,

@@ -4,6 +4,16 @@
           box-sizing: border-box;
 }
 
+.apptoolbar-nav-button{
+    
+}
+
+.apptoolbar{
+
+    z-index: 8;
+    
+}
+
 
 .menu-wrapper {
  width:100%; 
@@ -13,8 +23,9 @@
     z-index: 2;
     float: left;
 }
-.drawer {
+.appdrawer {
      z-index: 6;
+     top: 55;
 }
 
 .FAB {
@@ -102,14 +113,14 @@
 }
 
 .dice-widget-roll-button {
-    border: solid black 1px;
+   /* border: solid black 1px;
     width: 10px;
     height: 10px;
     float: left;
     margin: 5px;
     text-align: center;
     vertical-align: middle;
-    border-radius: 50%;
+    border-radius: 50%;*/
 }
 
 .dice-widget-roll-text {

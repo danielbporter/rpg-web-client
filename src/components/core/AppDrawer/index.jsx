@@ -26,28 +26,27 @@ function mapDispatchToProps(dispatch) {
   return {
 
     // @Peter drawer functions (this is needed)
-    // rollFunction: (id, sides) => dispatch(diceWidgetRoll(id, sides)),
-    // resetFunction: (id) => dispatch(diceWidgetReset(id)),
+    toggleFunction: (id) => dispatch(navMenuToggle(id)),
+    closeFunction: (id) => dispatch(navMenuClose(id)),
   };
 }
 
 // declare a new component, appDrawer
 export default class AppDrawer extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {open: false};
-    }
 
-  // handleToggle(this.setState({open: !this.state.open}); 
-
-  // handleChange(event, index, value) {
-  //   this.setState({value});
-  //   } 
 
   render() {
     // console.log(this.props.rolls.toString());
+    
 
+
+    const {
+      docked,
+      onRequestChange,
+      open,
+      style,
+    } = this.props;
     // grab the id specifcally because it will get used a few times
     const id = this.props.id;
 
@@ -58,27 +57,30 @@ export default class AppDrawer extends React.Component {
         className: `${this.props.className} appdrawer`,
       });
 
-     // const navButton = this.props.openFunction(open =>
-     //  <NavButton
-     //    onClick={() => this.props.openFunction(this.props.id, state)}
-     //  />
-    //);
-
-    // return the widget!
-    // widget has the properties from its parent and what it set itself
-    // it also contains its roll buttons and reset button and the children
-    // its parent gave it (react grid layout stuff, e.g. Resize Handle)
 
     if (true) {}
       
     return (
-        <div className="appdrawer">
-          <Drawer open={this.state.open}>
-              <MenuItem>Menu Item</MenuItem>
-              <MenuItem>Menu Item 2</MenuItem>
+        
+          <Drawer 
+            className='appdrawer'
+            style={
+              {
+              top: 55,
+                                       
+              }
+            }         
+            docked={docked}
+            open={true}
+            onRequestChange={onRequestChange}
+            >
+              <MenuItem>   -  </MenuItem>
+              <MenuItem>______</MenuItem>
+              <MenuItem>Assets</MenuItem>
+              <MenuItem>Widgets</MenuItem>
               <toggle/>
             </Drawer>       
-        </div>
+        
     );
   }
 }
@@ -93,14 +95,19 @@ AppDrawer.propTypes = {
   id: PropTypes.string,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
+  style: PropTypes.object,
+  containerStyle: PropTypes.object,
 
   // redux-content props
   open: PropTypes.arrayOf(PropTypes.bool),
+  docked: PropTypes.bool,
 
   // redux-dispatch props
   resetFunction: PropTypes.func,
   rollFunction: PropTypes.func,
   openFunction: PropTypes.func,
+  open: PropTypes.bool,
+  onRequestChange: PropTypes.func,
 
 
 

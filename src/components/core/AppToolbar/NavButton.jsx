@@ -3,9 +3,11 @@ import Button from '../../core/Button';
 import RaisedButton from 'material-ui/RaisedButton';
 
 
+
+
 const NavButton = (props) =>
   <Button className={'apptoolbar-nav-button'} onClick={props.onClick}>
-    {props.open}
+    {props.navDrawerOpen}
     </Button>
 ;
 

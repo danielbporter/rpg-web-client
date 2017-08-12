@@ -1,5 +1,3 @@
-//Presentational Component (wth exeptn f accnt)
-
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import IconMenu from 'material-ui/IconMenu';
@@ -34,17 +32,23 @@ import Popover from 'material-ui/Popover';
 
 // the information this component requires from redux
 function mapStateToProps(state) {
-  // empty because this component gets its information from the dashboard-widget interaction
-  return {};
+  // this component gets its information from the redux  info - commented out cuz no worky
+  return {
+    // drawer: state.drawer
+    //              .update('drawer', state.drawer.get('drawer').toList())
+    //              .toJS(),
+    // widgets: state.widgets.toList().toJS(),
+  };
 }
 
 // the actions this component will perform, passed in by redux
 function mapDispatchToProps(dispatch) {
   return {
-    toggleFunction: (id, state) => dispatch(navMenuToggle(id, state)),
-    closeFunction: (id, state) => dispatch(navMenuClose(id, state)),
+    toggleFunction: (id) => dispatch(navMenuToggle(id)),
+    closeFunction: (id) => dispatch(navMenuClose(id)),
   };
 }
+
 
 // declare a new component, AppToolbar
 class AppToolbar extends Component {
@@ -56,16 +60,30 @@ constructor(props) {
       open: false,
       id: 'AppToolbar',
     };
+
   }
 
   // build a navButton 
-  navButton(toggleFunc) {
+  navButton(toggleFunction) {
     return (
-      <div className={'apptoolbar-nav-button'} onClick={toggleFunc}>
-        {open}
+       <div className={'apptoolbar-nav-button'}>
+        <IconButton onClick={toggleFunction}>
+          <NavigationMenu/>
+          </IconButton>
       </div>
     );
   }
+ 
+ //render the drawer if called 
+
+  // renderDrawer(core) {
+  //   const  handleToggle = () => {this.setState({open: !this.state.open});
+  //   this.props.navMenuToggle();
+  //   this.props.setState(
+  //     {open: !this.state.open});
+  //   this.state = {open: true};
+  //}
+  //}
   // build a Accountbutton
   // resetButton(resetFunc) {
   //   return (
@@ -103,13 +121,11 @@ constructor(props) {
     const AppToolbarProps = Object.assign({},
       this.props,
       {
-        className: `${this.props.className} AppToolbar`,
+        className: `${this.props.className} appToolbar`,
       });
 
     // build the toolbar buttons
-    // const rollButtons = this.props.dice.map((d) =>
-    //   this.diceButton(d, () => this.props.rollFunction(id, d)));
-
+    
     // const NavButtons = this.props.drawer.map(state =>
     //   <NavButton
     //     onClick={() => this.props.toggleFunction(this.props.state)}
@@ -118,7 +134,7 @@ constructor(props) {
     // );
 
     // build other buttons
-   const navButton = this.navButton(() => this.props.toggleFunction(state));
+   const navButton = this.navButton(() => this.props.toggleFunction(id));
     
 
     // return the widget!
@@ -129,25 +145,13 @@ constructor(props) {
       <div {...toolbar.Props}>
         <Toolbar>
           <ToolbarGroup firstChild={true}>
-            <IconMenu
-              iconButtonElement={
-                <IconButton touch={true}>
-                    <NavigationMenu 
-                     onClick={this.handleToggle}> 
-                   </NavigationMenu>
-                  </IconButton>
-                }
-              />
+            {navButton}
             <ToolbarTitle text="dmprov"/>
             <ToolbarSeparator/>
             <DropDownMenu value={this.state.value} onChange={this.handleChange}>
               <MenuItem value={1} primaryText="All Broadcasts" />
               <MenuItem value={2} primaryText="All Voice" />
               <MenuItem value={3} primaryText="New Campaign" />
-              <MenuItem value={4} primaryText="Complete Voice" />
-              <MenuItem value={5} primaryText="Complete Text" />
-              <MenuItem value={6} primaryText="Active Voice" />
-              <MenuItem value={7} primaryText="Active Text" />
               </DropDownMenu>
               </ToolbarGroup>
           <ToolbarGroup>
@@ -191,6 +195,8 @@ constructor(props) {
     // toolbar props
     className: PropTypes.string,
     id: PropTypes.string,
+    onChange: PropTypes.func,
+    onClick: PropTypes.func,
 
     // redux-content props
    
@@ -209,5 +215,19 @@ constructor(props) {
 };
 
 // connect AppToolbar to redux and export the connected thing as AppToolbar
-export default AppToolbar;
+export default connect(mapStateToProps, mapDispatchToProps)(AppToolbar);
 //before connect(mapStateToProps, mapDispatchToProps)(AppToolbar)
+
+
+
+
+//copy this back in after your tests: <IconMenu
+              // iconButtonElement={
+
+              //   <IconButton touch={true}>
+              //       <NavigationMenu 
+              //        onClick={this.handleToggle}> 
+              //      </NavigationMenu>
+              //     </IconButton>
+              //   }
+              // />

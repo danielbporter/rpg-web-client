@@ -8,7 +8,7 @@ import {
   DICE_WIDGET_RESET,
   //RANFILTRATOR_WIDGET_RUN,
 } from '../actions/ActionTypes';
-
+ 
 //These change how/hype of widgets are reduced. 
 
 const initialState = Immutable.fromJS({
