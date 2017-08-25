@@ -13,3 +13,9 @@ npm run start
 
 TODO:
 * Fix small 1px error in widths on grid.
+
+
+Dumb Components: Aka Presentational, Stateless,  ex Page, Sidebar, Story, UserInfo, List. data from props 
+
+
+Smart Components: Container Components, containers  no DOM markup, no styles usually. [how things work]- usually geneerated by redux and connect(container) things like UserPage, FollowersSidebar, StoryContainer, FollowedUserList.
